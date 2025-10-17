@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.11-slim
 
 LABEL maintainer="f1nd6r@gmail.com"
 
@@ -9,6 +9,6 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY app/ app/
 
-CMD ["python", "main.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "app/main.py"]
